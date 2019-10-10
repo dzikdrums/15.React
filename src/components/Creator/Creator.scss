@@ -1,4 +1,4 @@
-@import '../../styles/settings.scss';
+@import "../../styles/settings.scss";
 
 .component {
   width: 100%;
@@ -7,7 +7,7 @@
     width: 100%;
     background: $color-light;
     border: 1px solid lighten($color-dark, 60%);
-    padding: $base-size ($base-size * 1.5);
+    padding: ($base-size * 0.7) ($base-size * 1.5);
     margin: 0 0 $base-size 0;
     font-family: $font-text;
     border-radius: $radius;
@@ -17,25 +17,27 @@
 .buttons {
   display: flex;
   justify-content: space-between;
-  opacity: 0;
-  height: 0;
+  display: none;
   transition: all 200ms;
+  height: 40px;
 
   &.buttonsShown {
-    opacity: 1;
-    height: 40px;
+    display: flex;
+
+    &.flexColumn {
+      flex-direction: column;
+    }
   }
 
   > * {
     flex-grow: 1;
     flex-basis: 0;
-
-    &:first-child {
-      margin: 0;
-
-      ~ * {
-        margin: 0 0 0 $base-size;
-      }
-    }
+    margin: 0 0 0 0;
   }
+}
+
+.confirmation {
+  font-size: 16px;
+  text-align: center;
+  margin: 9px 0;
 }
