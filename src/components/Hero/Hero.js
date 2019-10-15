@@ -11,8 +11,13 @@ const Hero = props => (
 );
 
 Hero.propTypes = {
-  titleText: PropTypes.node.isRequired,
-  imageUrl: PropTypes.string.isRequired
+  titleText: PropTypes.node,
+  imageUrl: PropTypes.string
+};
+
+Hero.defaultProps = {
+  titleText: "Things to do soon",
+  imageUrl: "http://uploads.kodilla.com/bootcamp/fer/11.react/space.png"
 };
 
 export default Hero;

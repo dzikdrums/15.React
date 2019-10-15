@@ -12,14 +12,23 @@ class List extends React.Component {
     columns: this.props.columns || []
   };
   static propTypes = {
-    title: PropTypes.node.isRequired,
+    title: PropTypes.node,
     description: PropTypes.node,
     columns: PropTypes.array,
-    image: PropTypes.string.isRequired
+    image: PropTypes.string
   };
   static defaultProps = {
     description: settings.defaultListDescription
   };
+
+  shouldComponentUpdate(nextProps) {
+    if (this.props.columns !== nextProps.columns) {
+      Object.assign(this.state, { columns: [] });
+      return true;
+    }
+    return false;
+  }
+
   addColumn(title) {
     this.setState(state => ({
       columns: [

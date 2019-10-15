@@ -11,6 +11,8 @@ class Column extends React.Component {
     cards: this.props.cards || []
   };
   static propTypes = {
+    cards: PropTypes.node,
+    icon: PropTypes.node,
     title: PropTypes.string.isRequired
   };
   addCard(title) {
