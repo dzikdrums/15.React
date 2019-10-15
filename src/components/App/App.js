@@ -1,20 +1,20 @@
-import React from "react";
-import styles from "./App.scss";
-import List from "../List/List";
-import { pageContents, listData } from "../../data/dataStore";
-import Creator from "../Creator/Creator";
-import { settings } from "../../data/dataStore";
+import React from 'react';
+import styles from './App.scss';
+import List from '../List/List';
+import { pageContents, listData } from '../../data/dataStore';
+import Creator from '../Creator/Creator';
+import { settings } from '../../data/dataStore';
 
 class App extends React.Component {
   addList() {
     this.setState({
-      text: { columns: [] }
+      text: { columns: [] },
     });
     console.log(this.state.text);
   }
 
   state = {
-    text: { ...listData }
+    text: { ...listData },
   };
 
   render() {

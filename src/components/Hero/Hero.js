@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./Hero.scss";
-import PropTypes from "prop-types";
-import ReactHtmlParser from "react-html-parser";
+import React from 'react';
+import styles from './Hero.scss';
+import PropTypes from 'prop-types';
+import ReactHtmlParser from 'react-html-parser';
 
 const Hero = props => (
   <header className={styles.component}>
@@ -12,12 +12,12 @@ const Hero = props => (
 
 Hero.propTypes = {
   titleText: PropTypes.node,
-  imageUrl: PropTypes.string
+  imageUrl: PropTypes.string,
 };
 
 Hero.defaultProps = {
-  titleText: "Things to do soon",
-  imageUrl: "http://uploads.kodilla.com/bootcamp/fer/11.react/space.png"
+  titleText: 'Things to do soon',
+  imageUrl: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
 };
 
 export default Hero;

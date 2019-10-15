@@ -1,37 +1,37 @@
-import React from "react";
-import styles from "./Creator.scss";
-import Button from "../Button/Button";
-import PropTypes from "prop-types";
+import React from 'react';
+import styles from './Creator.scss';
+import Button from '../Button/Button';
+import PropTypes from 'prop-types';
 
 class Creator extends React.Component {
   static propTypes = {
     text: PropTypes.string,
-    action: PropTypes.node
+    action: PropTypes.node,
   };
 
   static defaultProps = {
-    text: "Add new item"
+    text: 'Add new item',
   };
 
   state = {
-    value: "",
+    value: '',
     visibleButtons: false,
-    visibleButtonsCancel: false
+    visibleButtonsCancel: false,
   };
 
   handleChange(event) {
     this.setState({
       value: event.target.value,
-      visibleButtons: event.target.value.length > 0
+      visibleButtons: event.target.value.length > 0,
     });
   }
 
   handleOK() {
-    if (this.state.value != "") {
+    if (this.state.value != '') {
       this.props.action(this.state.value);
       this.setState({
-        value: "",
-        visibleButtons: false
+        value: '',
+        visibleButtons: false,
       });
     }
   }
@@ -39,22 +39,22 @@ class Creator extends React.Component {
   handleCancel() {
     this.setState({
       visibleButtons: false,
-      visibleButtonsCancel: true
+      visibleButtonsCancel: true,
     });
   }
 
   handleCancelYes() {
     this.setState({
-      value: "",
+      value: '',
       visibleButtons: false,
-      visibleButtonsCancel: false
+      visibleButtonsCancel: false,
     });
   }
 
   handleCancelNo() {
     this.setState({
       visibleButtons: true,
-      visibleButtonsCancel: false
+      visibleButtonsCancel: false,
     });
   }
 
@@ -63,7 +63,7 @@ class Creator extends React.Component {
       <div
         className={
           styles.component +
-          (this.state.visibleButtonsCancel ? " " + styles.buttonsShown : "")
+          (this.state.visibleButtonsCancel ? ' ' + styles.buttonsShown : '')
         }
       >
         <input
@@ -75,7 +75,7 @@ class Creator extends React.Component {
         <div
           className={
             styles.buttons +
-            (this.state.visibleButtons ? " " + styles.buttonsShown : "")
+            (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')
           }
         >
           <Button onClick={() => this.handleOK()}>OK</Button>
@@ -87,11 +87,11 @@ class Creator extends React.Component {
           className={
             styles.buttons +
             (this.state.visibleButtonsCancel
-              ? " " + styles.buttonsShown + " " + styles.flexColumn
-              : "")
+              ? ' ' + styles.buttonsShown + ' ' + styles.flexColumn
+              : '')
           }
         >
-          <div className={styles.buttons + " " + styles.buttonsShown}>
+          <div className={styles.buttons + ' ' + styles.buttonsShown}>
             <Button onClick={() => this.handleCancelYes()}>Yes</Button>
             <Button onClick={() => this.handleCancelNo()} variant="danger">
               No
