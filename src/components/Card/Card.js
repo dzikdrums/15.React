@@ -7,7 +7,9 @@ class Card extends React.Component {
     title: PropTypes.string.isRequired,
   };
   render() {
-    return <p className={styles.component}>{this.props.title}</p>;
+    const { title } = this.props;
+
+    return <p className={styles.component}>{title}</p>;
   }
 }
 
