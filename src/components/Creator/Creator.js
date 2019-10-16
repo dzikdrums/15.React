@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class Creator extends React.Component {
   static propTypes = {
     text: PropTypes.string,
-    action: PropTypes.node,
+    action: PropTypes.func,
   };
 
   static defaultProps = {
@@ -16,10 +16,10 @@ class Creator extends React.Component {
   state = {
     value: '',
     visibleButtons: false,
-    visibleButtonsCancel: false,
   };
 
   handleChange(event) {
+    // console.log(event);
     this.setState({
       value: event.target.value,
       visibleButtons: event.target.value.length > 0,
@@ -38,34 +38,14 @@ class Creator extends React.Component {
 
   handleCancel() {
     this.setState({
-      visibleButtons: false,
-      visibleButtonsCancel: true,
-    });
-  }
-
-  handleCancelYes() {
-    this.setState({
       value: '',
       visibleButtons: false,
-      visibleButtonsCancel: false,
-    });
-  }
-
-  handleCancelNo() {
-    this.setState({
-      visibleButtons: true,
-      visibleButtonsCancel: false,
     });
   }
 
   render() {
     return (
-      <div
-        className={
-          styles.component +
-          (this.state.visibleButtonsCancel ? ' ' + styles.buttonsShown : '')
-        }
-      >
+      <div className={styles.component}>
         <input
           type="text"
           placeholder={this.props.text}
@@ -82,22 +62,6 @@ class Creator extends React.Component {
           <Button onClick={() => this.handleCancel()} variant="danger">
             cancel
           </Button>
-        </div>
-        <div
-          className={
-            styles.buttons +
-            (this.state.visibleButtonsCancel
-              ? ' ' + styles.buttonsShown + ' ' + styles.flexColumn
-              : '')
-          }
-        >
-          <div className={styles.buttons + ' ' + styles.buttonsShown}>
-            <Button onClick={() => this.handleCancelYes()}>Yes</Button>
-            <Button onClick={() => this.handleCancelNo()} variant="danger">
-              No
-            </Button>
-          </div>
-          <p className={styles.confirmation}>Do You really want to cancel?</p>
         </div>
       </div>
     );
