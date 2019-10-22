@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 import { settings } from '../../data/dataStore';
 import Icon from '../Icon/Icon';
+import Container from '../Container/Container';
 
 class Search extends React.Component {
   static propTypes = {
@@ -34,15 +35,12 @@ class Search extends React.Component {
     this.props.changeSearchString(this.state.value);
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   this.setState({ value: newProps.searchString });
-  // }
-
   render() {
     const { text, icon, countVisible, countAll } = this.props;
     const { value } = this.state;
     return (
       <div className={styles.component}>
+        <Container />
         <input
           type="text"
           placeholder={text}
