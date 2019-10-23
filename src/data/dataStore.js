@@ -1,10 +1,16 @@
 export const settings = {
   columnCreatorText: 'Add new column',
   cardCreatorText: 'Add new card',
+  headerIcon: 'cat',
   creator: {
     buttonOK: 'OK',
     buttonCancel: 'Cancel',
     defaultText: 'Add new item',
+  },
+  subpageTitle: {
+    home: 'Home',
+    faq: 'Faq',
+    info: 'Info',
   },
   search: {
     defaultText: 'Search...',
@@ -17,6 +23,18 @@ export const settings = {
 const pageContents = {
   title: 'My first React app',
   subtitle: 'A simple to-do app, with lists, columns and cards',
+};
+
+export const faqContents = {
+  title: 'Faq',
+  content: 'This is s faq site',
+  imageUrl: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+};
+
+export const infoContents = {
+  title: 'Info',
+  content: 'This is s info site',
+  imageUrl: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
 };
 
 const lists = [
